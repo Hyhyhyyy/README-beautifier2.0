@@ -230,8 +230,28 @@ Rules:
 - Body: core tech stack, key features, target audience / use cases, and positioning,
   joined by semicolons (；) or commas, ending with 。.
 - Chinese only; no English run-on sentences, no Markdown links, no padding.
+- **Portability clause (apply when the repo IS this skill / a method-style tool):** the
+  body MUST state that the method is platform-agnostic and reusable by ANY agent / tool
+  that can author images and push to GitHub — e.g.
+  `方法平台无关，任何能绘图并推送 GitHub 的 Agent / 工具均可复用`. This mirrors the
+  "Scope & portability" section above and keeps the description honest about not being
+  WorkBuddy-exclusive. Do NOT write "WorkBuddy 技能" as an exclusive claim; say "技能"
+  or "方法" and add the portability clause.
 - **Opt-out:** private / joke / personal repos (MyBlog, TOMATOMATOO, KeLing1.0, …) may
   keep their own style — the 📌 convention applies to the public project portfolio.
+
+**Worked example (applied to `README-beautifier2.0` via `gh api -X PATCH`, verified):**
+
+```
+📌README 美化技能✨🎨。基于纯 SMIL 动画横幅（每仓手绘、零预设复用）一键美化 GitHub 仓库首页；方法平台无关，任何能绘图并推送 GitHub 的 Agent / 工具均可复用。支持批量生成动画 Hero、主题图标与着陆页，帮助开源项目快速拥有统一视觉风格与更专业的首页呈现，也便于批量维护多个仓库的视觉一致性。
+```
+
+Checklist before applying (mirrors what was done live):
+1. Draft the description in 📌 format + portability clause (if method-style).
+2. Show it to the user for confirmation — do NOT push without sign-off.
+3. `gh api -X PATCH repos/OWNER/REPO -f description='…'` (REST, not `gh repo edit`).
+4. Immediately `gh api repos/OWNER/REPO --jq '.description'` and assert it equals the
+   draft (byte-for-byte). Only report success after this round-trip matches.
 
 ### Step 5 — Push
 Prefer the git-clone-then-commit method (robust for multiple files; avoids API
