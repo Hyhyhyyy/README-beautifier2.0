@@ -205,8 +205,11 @@ def build(spec):
     shapes, anim = motif(mkey, a, s)
     seed = abs(hash(name)) % (2 ** 31)
     part = particles(seed, a, s)
-    # dynamic title font-size so long names (e.g. dlut-ultimate-website) don't overlap the hero
-    fs = 64 if len(name) <= 12 else (52 if len(name) <= 16 else 40)
+    # unified, enlarged title font-size (per user request "把标题字号统一调大").
+    # previously 64/52/40 by name length; now a single larger value for all repos.
+    # longest name (dlut-ultimate-website, 20 chars) at fs=70 ends ~772px, hero left edge
+    # starts at 848px (frisbee motif) -> ~76px gap, no collision.
+    fs = 70
     ux2 = 72 + min(560, int(len(name) * fs * 0.58))
     L = ux2 - 72
     tags_svg = ""
