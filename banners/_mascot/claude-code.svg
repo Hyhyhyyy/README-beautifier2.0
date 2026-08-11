@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" role="img" aria-label="claude-code" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c2d12"/>
+      <stop offset="0.55" stop-color="#c2410c"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#fed7aa"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#c2410c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fb923c" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#fb923c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#fb923c" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="380" fill="url(#bg)"/>
+  <ellipse cx="980" cy="200" rx="205" ry="170" fill="url(#glow)"/>
+  <circle cx="250" cy="300" r="9" fill="#fdba74" opacity="0.6"/>
+  <circle cx="1130" cy="74" r="11" fill="#fed7aa" opacity="0.6"/>
+  <circle cx="1170" cy="320" r="7" fill="#fb923c" opacity="0.65"/>
+  <rect x="-120" y="0" width="64" height="380" fill="url(#beam)">
+    <animate attributeName="x" values="-120;1240;-120" dur="9s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(980,190)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -14;0 0" dur="3s" repeatCount="indefinite"/>
+      <rect x="-112" y="-80" width="224" height="160" rx="20" fill="#1f0e04" stroke="url(#body)" stroke-width="11"/>
+      <rect x="-112" y="-80" width="224" height="38" rx="20" fill="#fb923c" opacity="0.92"/>
+      <circle cx="-82" cy="-61" r="7" fill="#1f0e04"/>
+      <circle cx="-56" cy="-61" r="7" fill="#1f0e04"/>
+      <circle cx="-30" cy="-61" r="7" fill="#1f0e04"/>
+      <rect x="-22" y="48" width="44" height="9" rx="4" fill="#fb923c">
+        <animate attributeName="opacity" values="1;0.1;1" dur="1.4s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+  <line x1="72" y1="170" x2="430" y2="170" stroke="#fed7aa" stroke-width="6" stroke-linecap="round" stroke-dasharray="358" stroke-dashoffset="358">
+    <animate attributeName="stroke-dashoffset" values="358;0;0;358" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <text x="70" y="150" font-size="60" font-weight="800" fill="url(#title)">claude-code</text>
+  <text x="72" y="198" font-size="22" fill="#f3c8a6" opacity="0.92">claude-code 的 Python 移植工作区</text>
+  <g font-size="16" font-weight="600">
+    <rect x="72" y="220" width="120" height="34" rx="17" fill="#fb923c" opacity="0.20" stroke="#fdba74" stroke-width="2"/>
+    <text x="132" y="242" fill="#fed7aa" text-anchor="middle">CLI</text>
+    <rect x="204" y="220" width="120" height="34" rx="17" fill="#fed7aa" opacity="0.16" stroke="#fed7aa" stroke-width="2"/>
+    <text x="264" y="242" fill="#ffe9d2" text-anchor="middle">移植</text>
+  </g>
+</svg>

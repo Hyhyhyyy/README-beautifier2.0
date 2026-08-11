@@ -74,14 +74,16 @@ A beautified portfolio must read as a *family*, not a *template*. Enforce:
 3. **One signature object + TWO MANDATORY motion layers** (see Step 2). Not a generic
    "document" or "gear" — something that says *this* project, with motion that (a) runs
    across the **whole** banner and (b) lives **around the title text**.
-4. **Mascot / core-concept visual language (user mandate)** — the banner centers on a
-   **lively, animated mascot or core-concept object**, not a static logo: **bold strokes**
-   (`stroke-width` 6–12); **rich multi-color palette (≥ 3 colors)** — vibrant multi-stop
-   gradient + 2–3 accents, colorful and diverse, no monochrome; **one focal mascot only**
-   that MOVES (bob/float/rotate/swing, nested in an inner `<g>`), in open space with
-   generous negative space; **NO circular badge frame**; **no element stacking** (don't
-   pile coins/satellites/cards/arrows). Full细则见 `references/principles.md` → "Mascot /
-   core-concept visual language".
+4. **Sci-fi / core-concept visual language (user mandate, current default)** — the banner
+   reads as a glowing, deep-space tech hero: **deep dark gradient background** (near-black
+   tinted with the repo's hue) + **neon accent(s)** driving glow/particles/title; a
+   **PARTICLE FIELD spread across the WHOLE 1280×380** (many small twinkling/drifting dots)
+   is the signature sci-fi element; the hero is **one animated core-concept object** (neon
+   line-art + `feGaussianBlur` glow, bold `stroke-width` 6–12) that MOVES (bob/float/rotate/
+   swing/pulse, nested in an inner `<g>`); **NO circular badge frame**; **no element
+   stacking**; generous negative space. Full细则见 `references/principles.md` → "Sci-fi /
+   core-concept visual language". A generator exists at `scripts/gen_scifi.py` (per-repo
+   UNIQUE motif functions — no shared motif/preset to reuse).
 5. **The automated guards are the folder uniqueness check (Rule 6) and the motion-layer
    check (Rule 7)** in `validate_banner.py`. They compare a candidate banner against
    every file in `banners/` (Rule 6) and verify both motion layers exist (Rule 7).

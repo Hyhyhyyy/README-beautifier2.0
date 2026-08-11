@@ -46,31 +46,40 @@ A banner is not finished with only the hero object's animation. Every banner MUS
 These two layers are checked by Rule 7 in `validate_banner.py` — a new banner that
 misses either one FAILS the gate.
 
-## Mascot / core-concept visual language (bold, colorful, alive)
+## Sci-fi / core-concept visual language (deep-space, neon, alive) — CURRENT DEFAULT
 
-The standing art direction: every banner centers on a **lively mascot or core-concept object
-that MOVES**, drawn boldly in **rich, multi-color** palettes. Non-negotiables:
+The standing art direction (user mandate): every banner reads as a glowing, deep-space tech
+hero. Non-negotiables:
 
-1. **Bold strokes.** Emblems use `stroke-width` in the **6–12** range — not hairlines. Thick
-   contours make the mascot read as a confident mark.
-2. **Rich, multi-color palettes (≥ 3 colors).** Use vibrant **multi-stop gradients** (blend
-   2–3 hues) for the background AND **2–3 accent colors** on the mascot. Colorful and diverse —
-   not a single deep base + one accent. (Keep title text contrast readable.)
-3. **Animated mascot / core concept object — the hero moves.** The central object is ALIVE:
-   bob/float (`<animateTransform type="translate">` on an *inner* `<g>`), gentle rotate, swing,
-   pulse/scale, or a moving sub-part. It should read as a *character* or *key concept in motion*,
-   not a static logo. Nest the motion in an inner `<g>` — never on the same `<g>` as the base
-   `translate()` (transform-wipe rule).
-4. **NO circular badge frame.** Do NOT box the mascot in a ring/circle. Let it breathe freely
-   in open space. A *soft, non-ring* backdrop (faint blob, scattered dots, or gradient glow) is
-   allowed for depth — but never a containing circle.
-5. **One focal concept, not a pile.** One strong mascot/object + minimal support (soft backdrop
-   + title). No element stacking (coins + satellites + cards + arrows at once). If a 3rd discrete
-   object appears, cut it.
-6. **Generous negative space (大气).** Surround the mascot with empty canvas.
-7. **Keep BOTH mandatory motion layers (Rule 7):** a banner-wide sweep (≥ 600px) *behind* the
-   mascot + a title-surround animation. The mascot's own motion is *additional*, never a
-   replacement for those two.
+1. **Deep dark background.** Near-black, tinted with the repo's hue (e.g. `#16070d → #2c0e18`
+   for a red repo). Never a bright/light base — the darkness is what makes the neon read as
+   sci-fi. A faint perspective/grid line overlay at low opacity is welcome texture.
+2. **Neon accents (2 colors).** One bright neon accent (the repo's identity hue) + one secondary
+   neon, driving the title gradient, glow, particles, and hero strokes. Glow via
+   `feGaussianBlur` merge filter (`:url(#glow)`) on the hero + key lines.
+3. **PARTICLE FIELD spread across the WHOLE banner (signature element).** ~60 small circles
+   scattered over the full 1280×380, each twinkling (opacity loop) and gently drifting
+   (`<animateTransform type="translate">`, small ±5px). This is the "遍布横幅的粒子特效" the
+   user explicitly asked for — it must cover the entire canvas, not just a corner.
+4. **Bold strokes + glow.** Hero line-art uses `stroke-width` **6–12**. Thick neon contours +
+   glow filter make the object read as a confident sci-fi mark.
+5. **Animated core-concept object — the hero moves.** The central object is ALIVE: bob/float,
+   gentle rotate, swing, pulse/scale. Nest the motion in an *inner* `<g>` — never on the same
+   `<g>` as the base `translate()` (transform-wipe rule, Rule 3).
+6. **NO circular badge frame.** Do NOT box the hero in a ring/circle. Let it breathe in open
+   space. A *soft, non-ring* glow blob / particle haze is allowed for depth — never a containing
+   circle.
+7. **One focal concept, not a pile.** One strong hero object + minimal support (glow + particles
+   + title). No element stacking. If a 3rd discrete object appears, cut it.
+8. **Generous negative space (大气).** Surround the hero with empty canvas.
+9. **Keep BOTH mandatory motion layers (Rule 7):** a banner-wide sweep (≥ 600px, e.g. a
+   diagonal light beam) *behind* the hero + a title-surround animation (draw-on underline /
+   halo). The hero's own motion is *additional*, never a replacement for those two.
+10. **Per-repo UNIQUE motif — no preset reuse.** Each hero object is hand-drawn for its repo
+    (see "Read everything first"). `scripts/gen_scifi.py` holds one bespoke motif function per
+    repo; there is **no shared motif/preset to clone** — only the ambient scaffold (bg, glow
+    blobs, particle field, sweep, grid) is shared, and the uniqueness gate (Rule 6) ignores
+    ambient scaffolding and only compares the right-side hero group.
 
 ## Canvas anatomy (1280 × 380)
 
