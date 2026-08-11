@@ -200,24 +200,70 @@ def motif(name, a, s):
     return shapes, anim
 
 
+def title_layout(name):
+    """Unified title sizing: cap fs=104 (~1.5x of the previous 70); long names auto-wrap
+    to 2 lines so the text never overflows the ~776px left zone (hero starts ~x=848)."""
+    fs = 104
+    max_w = 720  # safe single-line width before the hero concept object
+    est = len(name) * (fs * 0.5 - 1)
+    if est <= max_w:
+        ux2 = 72 + min(560, int(est))
+        return fs, [name], [205], 250, ux2, ux2 - 72
+    # wrap into 2 lines (prefer breaking at a hyphen for repo names)
+    if '-' in name:
+        parts = name.split('-')
+        chosen = None
+        for i in range(1, len(parts)):
+            left = '-'.join(parts[:i]) + '-'
+            right = '-'.join(parts[i:])
+            if (len(left) * (fs * 0.5 - 1) <= max_w) and (len(right) * (fs * 0.5 - 1) <= max_w):
+                chosen = (left, right); break
+        if chosen is None:
+            chosen = (parts[0] + '-', '-'.join(parts[1:]))
+        line1, line2 = chosen
+    else:
+        mid = len(name) // 2
+        line1, line2 = name[:mid], name[mid:]
+    lh = int(fs * 1.02)
+    y1, y2 = 138, 138 + lh
+    lw = max(len(line1), len(line2)) * (fs * 0.5 - 1)
+    ux2 = 72 + min(560, int(lw))
+    return fs, [line1, line2], [y1, y2], y2 + 18, ux2, ux2 - 72
+
+
 def build(spec):
     name, sub, tags, a, s, bg1, bg2, mkey = spec
     shapes, anim = motif(mkey, a, s)
     seed = abs(hash(name)) % (2 ** 31)
     part = particles(seed, a, s)
-    # unified, enlarged title font-size (per user request "把标题字号统一调大").
-    # previously 64/52/40 by name length; now a single larger value for all repos.
-    # longest name (dlut-ultimate-website, 20 chars) at fs=70 ends ~772px, hero left edge
-    # starts at 848px (frisbee motif) -> ~76px gap, no collision.
-    fs = 70
-    ux2 = 72 + min(560, int(len(name) * fs * 0.58))
-    L = ux2 - 72
+    # unified, enlarged title font-size (per user requests "统一调大" then "再放大两倍").
+    # cap fs=104 (~1.5x of the previous 70); long names auto-wrap to 2 lines so the
+    # text never overflows the ~776px left zone (hero concept object starts ~x=848).
+    fs, lines, ylist, ul_y, ux2, L = title_layout(name)
+    two = len(lines) == 2
+    sub_y = 300 if two else 285
+    tag_y = 312 if two else 300
+    # pre-build multi-line title + draw-on underline (shared entrance animation)
+    _ff = "'Segoe UI','Helvetica Neue',Arial,sans-serif"
+    title_inner = "".join(
+        f'<text x="72" y="{yy}" font-family="{_ff}" font-size="{fs}" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">{ln}</text>'
+        for ln, yy in zip(lines, ylist))
+    title_svg = (
+        '<g>'
+        '<animateTransform attributeName="transform" type="translate" values="-40 12;0 0;0 0" keyTimes="0;0.5;1" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1;0 0 1 1"/>'
+        '<animate attributeName="opacity" values="0;1;1" keyTimes="0;0.5;1" dur="1.6s" fill="freeze"/>'
+        f'{title_inner}</g>')
+    underline_svg = (
+        f'<line x1="72" y1="{ul_y}" x2="{ux2}" y2="{ul_y}" stroke="url(#titleGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="{L}" stroke-dashoffset="{L}">'
+        '<animate attributeName="stroke-dashoffset" values="{L};0;0" keyTimes="0;0.55;1" dur="1.8s" fill="freeze"/>'
+        '<animate attributeName="opacity" values="0;1;1" keyTimes="0;0.2;1" dur="1.8s" fill="freeze"/>'
+        '</line>')
     tags_svg = ""
     tx = 74
     for t in tags[:3]:
         w = len(t) * 12 + 22
-        tags_svg += (f'<rect x="{tx}" y="300" width="{w}" height="24" rx="12" fill="{a}" fill-opacity="0.14" stroke="{a}" stroke-width="1"/>'
-                    f'<text x="{tx + w / 2}" y="316" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="{s}" opacity="0.9">{t}</text>')
+        tags_svg += (f'<rect x="{tx}" y="{tag_y}" width="{w}" height="24" rx="12" fill="{a}" fill-opacity="0.14" stroke="{a}" stroke-width="1"/>'
+                    f'<text x="{tx + w / 2}" y="{tag_y + 16}" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="{s}" opacity="0.9">{t}</text>')
         tx += w + 10
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" role="img" aria-label="{name}">
@@ -255,16 +301,9 @@ def build(spec):
     <rect x="-260" y="250" width="220" height="2" fill="url(#beam)"><animateTransform attributeName="transform" type="translate" values="-200 0;1700 0" dur="13s" begin="2s" repeatCount="indefinite"/></rect>
   </g>
   <g transform="translate(980,190)"><g filter="url(#glow)">{anim}{shapes}</g></g>
-  <line x1="72" y1="250" x2="{ux2}" y2="250" stroke="url(#titleGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="{L}" stroke-dashoffset="{L}">
-    <animate attributeName="stroke-dashoffset" values="{L};0;0" keyTimes="0;0.55;1" dur="1.8s" fill="freeze"/>
-    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.2;1" dur="1.8s" fill="freeze"/>
-  </line>
-  <text x="72" y="205" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="{fs}" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">
-    <animateTransform attributeName="transform" type="translate" values="-40 12;0 0;0 0" keyTimes="0;0.5;1" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1;0 0 1 1"/>
-    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.5;1" dur="1.6s" fill="freeze"/>
-    {name}
-  </text>
-  <text x="74" y="285" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="500" fill="{s}">
+  {underline_svg}
+  {title_svg}
+  <text x="74" y="{sub_y}" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="500" fill="{s}">
     <animate attributeName="opacity" values="0;0;1" keyTimes="0;0.5;1" dur="1.8s" fill="freeze"/>
     {sub}
   </text>
