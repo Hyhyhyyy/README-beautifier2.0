@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" role="img" aria-label="TOMATOMATOO">
+  <defs>
+    <linearGradient id="bg_TOMATOMATOO" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0.00" stop-color="#7f1d1d"/><stop offset="0.33" stop-color="#991b1b"/><stop offset="0.67" stop-color="#b91c1c"/><stop offset="1.00" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="g_TOMATOMATOO" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fee2e2"/>
+      <stop offset="0.5" stop-color="#fecaca"/>
+      <stop offset="1" stop-color="#fca5a5"/>
+      <animate attributeName="x1" values="0;0.3;0" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;0.7;1" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+    <filter id="blur_TOMATOMATOO" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <clipPath id="clip_TOMATOMATOO"><rect x="0" y="0" width="1280" height="380" rx="18"/></clipPath>
+
+  </defs>
+  <g clip-path="url(#clip_TOMATOMATOO)">
+    <rect x="0" y="0" width="1280" height="380" fill="url(#bg_TOMATOMATOO)"/>
+    <g filter="url(#blur_TOMATOMATOO)">
+
+  <circle cx="180" cy="120" r="150" fill="#fca5a5" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 40 16.0; 0 0" dur="60s" begin="0.0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="48.0s" begin="0.0s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="1080" cy="90" r="120" fill="#fb923c" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; -30 -12.0; 0 0" dur="70s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="56.0s" begin="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="980" cy="300" r="170" fill="#f87171" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 50 20.0; 0 0" dur="55s" begin="0.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="44.0s" begin="0.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="320" cy="320" r="110" fill="#fb923c" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; -25 -10.0; 0 0" dur="65s" begin="2.0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="52.0s" begin="2.0s" repeatCount="indefinite"/>
+  </circle>
+</g>
+    
+  <circle cx="320" cy="190" r="150" fill="none" stroke="#fca5a5" stroke-width="1.2" opacity="0.18" stroke-dasharray="6 14">
+    <animateTransform attributeName="transform" type="rotate" from="0 320 190" to="360 320 190" dur="40s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="320" cy="190" r="110" fill="none" stroke="#fca5a5" stroke-width="1" opacity="0.12"/>
+
+  <g opacity="0.12">
+    <rect x="-300" y="150" width="300" height="3" fill="#fca5a5" transform="rotate(-18 0 150)">
+      <animateTransform attributeName="transform" type="translate" values="-200 0; 1700 0" dur="9s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-300" y="250" width="220" height="2" fill="#fca5a5" transform="rotate(-18 0 250)">
+      <animateTransform attributeName="transform" type="translate" values="-200 0; 1700 0" dur="13s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+    
+  <circle cx="1050" cy="190" r="70" fill="none" stroke="#fde68a" stroke-width="6" opacity="0.25"/>
+  <circle cx="1050" cy="190" r="70" fill="none" stroke="#fca5a5" stroke-width="6" stroke-linecap="round" transform="rotate(-90 1050 190)" stroke-dasharray="439.8" stroke-dashoffset="439.8"><animate attributeName="stroke-dashoffset" values="439.8;0;439.8" keyTimes="0;0.85;1" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.3 0 0.2 1;0.3 0 0.2 1"/></circle>
+    <g transform="translate(1050,190)">
+    <defs>
+      <radialGradient id="tom_body" cx="0.38" cy="0.30" r="0.92">
+        <stop offset="0" stop-color="#fee2e2"/>
+        <stop offset="0.42" stop-color="#fca5a5"/>
+        <stop offset="1" stop-color="#991b1b"/>
+      </radialGradient>
+      <linearGradient id="tom_leaf" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#bbf7d0"/>
+        <stop offset="1" stop-color="#15803d"/>
+      </linearGradient>
+    </defs>
+    <circle cx="0" cy="0" r="98" fill="#fca5a5" opacity="0.10">
+      <animate attributeName="r" values="90;104;90" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <g>
+      <circle cx="80" cy="-58" r="5" fill="#fde68a" opacity="0.85">
+        <animate attributeName="opacity" values="0.2;0.95;0.2" dur="2.4s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0;5 -9;0 0" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-74" cy="52" r="4" fill="#fde68a" opacity="0.75">
+        <animate attributeName="opacity" values="0.3;0.85;0.3" dur="3.1s" begin="0.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="12" r="64" fill="url(#tom_body)"/>
+      <ellipse cx="-20" cy="-12" rx="18" ry="11" fill="#ffffff" opacity="0.4"/>
+      <path d="M0 -54 L13 -34 L34 -36 L21 -18 L33 2 L0 -6 L-33 2 L-21 -18 L-34 -36 L-13 -34 Z" fill="url(#tom_leaf)"/>
+      <rect x="-3" y="-66" width="6" height="16" rx="3" fill="#166534"/>
+      <animateTransform attributeName="transform" type="rotate" values="-5 0 32;5 0 32;-5 0 32" dur="3.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+      <animateTransform attributeName="transform" type="scale" values="1 1;1.035 1.035;1 1" dur="3.6s" repeatCount="indefinite" additive="sum"/>
+    </g>
+  </g>
+    
+  <line x1="80" y1="250" x2="440" y2="250" stroke="url(#g_TOMATOMATOO)" stroke-width="4" stroke-linecap="round" stroke-dasharray="360" stroke-dashoffset="360">
+    <animate attributeName="stroke-dashoffset" values="360;0;0" keyTimes="0;0.55;1" dur="1.8s" fill="freeze"/>
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.2;1" dur="1.8s" fill="freeze"/>
+  </line>
+    
+  <text x="80" y="200" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="66" font-weight="800" fill="url(#g_TOMATOMATOO)" letter-spacing="-1">
+    <animateTransform attributeName="transform" type="translate" values="-40 12; 0 0; 0 0" keyTimes="0;0.5;1" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.34 1.56 0.64 1;0 0 1 1"/>
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.5;1" dur="1.6s" fill="freeze"/>
+    TOMATOMATOO
+  </text>
+  <text x="82" y="238" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="500" fill="#fed7d7">
+    <animate attributeName="opacity" values="0;0;1" keyTimes="0;0.5;1" dur="1.8s" fill="freeze"/>
+    一起养番茄 · 双人习惯养成小程序
+  </text>
+      <g transform="translate(80,280)" opacity="0">
+    <rect x="0" y="0" width="40" height="28" rx="14" fill="#fde68a" fill-opacity="0.14" stroke="#fca5a5" stroke-opacity="0.55" stroke-width="1"/>
+    <text x="20" y="19" text-anchor="middle" font-family="monospace" font-size="14" fill="#fed7d7">习惯</text>
+    <animate attributeName="opacity" values="0;1" begin="0.95s" dur="0.5s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" values="80 292; 80 280" begin="0.95s" dur="0.55s" fill="freeze" calcMode="spline" keySplines="0.34 1.56 0.64 1;0 0 1 1" keyTimes="0;1"/>
+  </g>
+  <g transform="translate(132,280)" opacity="0">
+    <rect x="0" y="0" width="40" height="28" rx="14" fill="#fde68a" fill-opacity="0.14" stroke="#fca5a5" stroke-opacity="0.55" stroke-width="1"/>
+    <text x="20" y="19" text-anchor="middle" font-family="monospace" font-size="14" fill="#fed7d7">双人</text>
+    <animate attributeName="opacity" values="0;1" begin="1.11s" dur="0.5s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" values="132 292; 132 280" begin="1.11s" dur="0.55s" fill="freeze" calcMode="spline" keySplines="0.34 1.56 0.64 1;0 0 1 1" keyTimes="0;1"/>
+  </g>
+  <g transform="translate(184,280)" opacity="0">
+    <rect x="0" y="0" width="49" height="28" rx="14" fill="#fde68a" fill-opacity="0.14" stroke="#fca5a5" stroke-opacity="0.55" stroke-width="1"/>
+    <text x="24" y="19" text-anchor="middle" font-family="monospace" font-size="14" fill="#fed7d7">小程序</text>
+    <animate attributeName="opacity" values="0;1" begin="1.27s" dur="0.5s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" values="184 292; 184 280" begin="1.27s" dur="0.55s" fill="freeze" calcMode="spline" keySplines="0.34 1.56 0.64 1;0 0 1 1" keyTimes="0;1"/>
+  </g>
+    <text x="1240" y="356" text-anchor="end" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="14" fill="#fed7d7" opacity="0.55">made with &#10084; by Hyhyhyyy</text>
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" role="img" aria-label="train_guard" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3a8a"/>
+      <stop offset="0.5" stop-color="#3730a3"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#93c5fd"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#60a5fa" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="380" fill="url(#bg)"/>
+  <ellipse cx="980" cy="200" rx="200" ry="165" fill="url(#glow)"/>
+  <circle cx="1066" cy="120" r="6" fill="#a5f3fc" opacity="0.9"/>
+  <circle cx="900" cy="284" r="5" fill="#c7d2fe" opacity="0.85"/>
+  <circle cx="1090" cy="278" r="4" fill="#dbeafe" opacity="0.7"/>
+  <rect x="-220" y="0" width="220" height="380" fill="url(#beam)">
+    <animate attributeName="x" values="-220;1300;-220" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(980,190)">
+    <g>
+      <animateTransform attributeName="transform" type="scale" values="1;1.05;1" dur="3.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+      <path d="M0,-80 C46,-80 78,-54 78,-10 C78,46 34,74 0,88 C-34,74 -78,46 -78,-10 C-78,-54 -46,-80 0,-80 Z" fill="url(#shield)" stroke="#bfdbfe" stroke-width="9"/>
+      <path d="M-56,42 L-34,42 L-22,18 L-8,60 L6,30 L18,42 L56,42" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="220">
+        <animate attributeName="stroke-dashoffset" values="220;0;0;220" keyTimes="0;0.5;0.8;1" dur="3.2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  <line x1="72" y1="172" x2="436" y2="172" stroke="#93c5fd" stroke-width="6" stroke-linecap="round" stroke-dasharray="364" stroke-dashoffset="364">
+    <animate attributeName="stroke-dashoffset" values="364;0;0;364" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <text x="70" y="150" font-size="60" font-weight="800" fill="url(#title)">train_guard</text>
+  <text x="72" y="198" font-size="22" fill="#d6eefe" opacity="0.92">LLM/VLM 训练可靠性守护</text>
+  <g font-size="16" font-weight="600">
+    <rect x="72" y="220" width="120" height="34" rx="17" fill="#3b82f6" opacity="0.20" stroke="#7dd3fc" stroke-width="2"/>
+    <text x="132" y="242" fill="#e0f2fe" text-anchor="middle">检查</text>
+    <rect x="204" y="220" width="120" height="34" rx="17" fill="#e2e8f0" opacity="0.16" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="264" y="242" fill="#f1f5f9" text-anchor="middle">监控</text>
+  </g>
+</svg>

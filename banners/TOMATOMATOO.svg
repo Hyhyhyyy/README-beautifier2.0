@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" role="img" aria-label="TOMATOMATOO" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7f1d1d"/>
+      <stop offset="0.55" stop-color="#b91c1c"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ffd166"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff7a5c"/>
+      <stop offset="1" stop-color="#e11d48"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffd166" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="380" fill="url(#bg)"/>
+  <ellipse cx="980" cy="200" rx="210" ry="170" fill="url(#glow)"/>
+  <circle cx="1070" cy="118" r="6" fill="#fbbf24" opacity="0.85"/>
+  <circle cx="892" cy="286" r="5" fill="#84cc16" opacity="0.85"/>
+  <circle cx="1092" cy="282" r="4" fill="#fee2e2" opacity="0.7"/>
+  <rect x="-220" y="0" width="220" height="380" fill="url(#beam)">
+    <animate attributeName="x" values="-220;1300;-220" dur="7s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(980,190)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -16;0 0" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+      <path d="M0,-66 C-10,-96 -44,-100 -58,-78 C-36,-74 -14,-66 0,-54 Z" fill="#22c55e" stroke="#15803d" stroke-width="6"/>
+      <path d="M0,-66 C10,-96 44,-100 58,-78 C36,-74 14,-66 0,-54 Z" fill="#16a34a" stroke="#15803d" stroke-width="6"/>
+      <rect x="-7" y="-86" width="14" height="26" rx="6" fill="#15803d"/>
+      <circle r="70" fill="url(#body)" stroke="#fbbf24" stroke-width="9"/>
+      <ellipse cx="-26" cy="-30" rx="16" ry="22" fill="#ffffff" opacity="0.25"/>
+    </g>
+  </g>
+  <line x1="72" y1="172" x2="436" y2="172" stroke="#ffd166" stroke-width="6" stroke-linecap="round" stroke-dasharray="364" stroke-dashoffset="364">
+    <animate attributeName="stroke-dashoffset" values="364;0;0;364" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <text x="70" y="150" font-size="60" font-weight="800" fill="url(#title)">TOMATOMATOO</text>
+  <text x="72" y="198" font-size="22" fill="#fde2dc" opacity="0.92">双人习惯养成 · 共享番茄园</text>
+  <g font-size="16" font-weight="600">
+    <rect x="72" y="220" width="120" height="34" rx="17" fill="#f43f5e" opacity="0.20" stroke="#ff8a7a" stroke-width="2"/>
+    <text x="132" y="242" fill="#ffe1da" text-anchor="middle">习惯打卡</text>
+    <rect x="204" y="220" width="108" height="34" rx="17" fill="#fbbf24" opacity="0.18" stroke="#fbbf24" stroke-width="2"/>
+    <text x="258" y="242" fill="#ffe9b0" text-anchor="middle">云开发</text>
+  </g>
+</svg>

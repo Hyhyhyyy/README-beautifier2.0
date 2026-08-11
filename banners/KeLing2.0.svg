@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" role="img" aria-label="KeLing2.0" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c2d12"/>
+      <stop offset="0.5" stop-color="#b45309"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#b45309"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fcd34d" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#fcd34d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#fbbf24" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="380" fill="url(#bg)"/>
+  <ellipse cx="980" cy="200" rx="200" ry="165" fill="url(#glow)"/>
+  <circle cx="1066" cy="120" r="6" fill="#fde68a" opacity="0.9"/>
+  <circle cx="900" cy="284" r="5" fill="#fef3c7" opacity="0.85"/>
+  <circle cx="1090" cy="278" r="4" fill="#fecaca" opacity="0.7"/>
+  <rect x="-220" y="0" width="220" height="380" fill="url(#beam)">
+    <animate attributeName="x" values="-220;1300;-220" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(980,190)">
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="-12 0 -78;12 0 -78;-12 0 -78" dur="3.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+      <rect x="-58" y="-78" width="116" height="150" rx="16" fill="url(#card)" stroke="#fde68a" stroke-width="8"/>
+      <rect x="-42" y="-58" width="74" height="9" rx="4.5" fill="#fef3c7" opacity="0.9"/>
+      <rect x="-42" y="-40" width="54" height="9" rx="4.5" fill="#fef3c7" opacity="0.7"/>
+    </g>
+  </g>
+  <line x1="72" y1="172" x2="420" y2="172" stroke="#fde68a" stroke-width="6" stroke-linecap="round" stroke-dasharray="348" stroke-dashoffset="348">
+    <animate attributeName="stroke-dashoffset" values="348;0;0;348" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <text x="70" y="150" font-size="60" font-weight="800" fill="url(#title)">KeLing2.0</text>
+  <text x="72" y="198" font-size="22" fill="#fde9c2" opacity="0.92">知识卡片 · 标签 · 跨端同步</text>
+  <g font-size="16" font-weight="600">
+    <rect x="72" y="220" width="120" height="34" rx="17" fill="#f59e0b" opacity="0.20" stroke="#fcd34d" stroke-width="2"/>
+    <text x="132" y="242" fill="#fff4cf" text-anchor="middle">卡片</text>
+    <rect x="204" y="220" width="120" height="34" rx="17" fill="#fde68a" opacity="0.16" stroke="#fde68a" stroke-width="2"/>
+    <text x="264" y="242" fill="#fff8de" text-anchor="middle">同步</text>
+  </g>
+</svg>

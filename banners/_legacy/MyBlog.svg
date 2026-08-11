@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" role="img" aria-label="MyBlog">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#fdfcfb"/>
+      <stop offset="0.55" stop-color="#eef2fb"/>
+      <stop offset="1" stop-color="#e7ecf7"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#312e81"/>
+      <stop offset="0.5" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="quill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <clipPath id="clip"><rect x="0" y="0" width="1280" height="380" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect x="0" y="0" width="1280" height="380" fill="url(#bg)"/>
+    <circle cx="170" cy="312" r="172" fill="#c7d2fe" opacity="0.45" filter="url(#soft)"/>
+    <circle cx="1142" cy="58" r="112" fill="#ddd6fe" opacity="0.4" filter="url(#soft)"/>
+
+    <text x="70" y="150" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="62" font-weight="800" fill="url(#title)">MyBlog</text>
+    <text x="72" y="192" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="500" fill="#475569">零云依赖 · 纯静态 Markdown 博客 · 写作即提交</text>
+
+    <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="600">
+      <rect x="72" y="220" width="78" height="34" rx="17" fill="#eef2ff" stroke="#c7d2fe"/>
+      <text x="111" y="242" text-anchor="middle" fill="#4f46e5">博客</text>
+      <rect x="160" y="220" width="118" height="34" rx="17" fill="#eef2ff" stroke="#c7d2fe"/>
+      <text x="219" y="242" text-anchor="middle" fill="#4f46e5">Markdown</text>
+      <rect x="288" y="220" width="98" height="34" rx="17" fill="#eef2ff" stroke="#c7d2fe"/>
+      <text x="337" y="242" text-anchor="middle" fill="#4f46e5">静态站</text>
+    </g>
+
+    <g transform="translate(1000,200)">
+      <rect x="-86" y="-64" width="160" height="168" rx="14" fill="#ffffff" stroke="#c7d2fe" stroke-width="3" transform="rotate(-7 -6 80)"/>
+      <path d="M -60 -28 L 56 -28" stroke="#a5b4fc" stroke-width="6" stroke-linecap="round" fill="none" stroke-dasharray="120" stroke-dashoffset="120">
+        <animate attributeName="stroke-dashoffset" values="120;0;0" dur="3.2s" repeatCount="indefinite" keyTimes="0;0.6;1"/>
+      </path>
+      <path d="M -60 4 L 40 4" stroke="#c7d2fe" stroke-width="6" stroke-linecap="round" fill="none" stroke-dasharray="100" stroke-dashoffset="100">
+        <animate attributeName="stroke-dashoffset" values="100;0;0" dur="3.2s" begin="0.4s" repeatCount="indefinite" keyTimes="0;0.6;1"/>
+      </path>
+      <path d="M -60 36 L 64 36" stroke="#c7d2fe" stroke-width="6" stroke-linecap="round" fill="none" stroke-dasharray="124" stroke-dashoffset="124">
+        <animate attributeName="stroke-dashoffset" values="124;0;0" dur="3.2s" begin="0.8s" repeatCount="indefinite" keyTimes="0;0.6;1"/>
+      </path>
+      <g transform="translate(64,36)">
+        <circle r="11" fill="#10b981">
+          <animate attributeName="r" values="9;12;9" dur="1.8s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="11" fill="none" stroke="#10b981" stroke-width="2" opacity="0.6">
+          <animate attributeName="r" values="11;20;11" dur="1.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;0;0.6" dur="1.8s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+      <g transform="translate(46,-26) rotate(20)">
+        <path d="M 0 132 C -40 70 -30 -34 -8 -122 C 12 -52 32 52 0 132 Z" fill="url(#quill)"/>
+        <path d="M 0 128 L -4 -116" stroke="#ede9fe" stroke-width="3" fill="none" opacity="0.7"/>
+        <path d="M -10 110 L -2 104 M -16 86 L -6 80 M -18 60 L -8 55 M -16 34 L -7 30 M 12 104 L 3 110 M 16 80 L 6 86 M 16 55 L 7 60 M 14 30 L 6 34" stroke="#ede9fe" stroke-width="2" opacity="0.55"/>
+        <path d="M -7 126 L 7 126 L 0 144 Z" fill="#312e81"/>
+      </g>
+    </g>
+  </g>
+</svg>

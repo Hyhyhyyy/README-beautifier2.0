@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" role="img" aria-label="MyBlog" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#064e3b"/>
+      <stop offset="0.5" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#6ee7b7"/>
+    </linearGradient>
+    <linearGradient id="nib" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#047857"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#a7f3d0" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#a7f3d0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#6ee7b7" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="380" fill="url(#bg)"/>
+  <ellipse cx="980" cy="200" rx="200" ry="165" fill="url(#glow)"/>
+  <circle cx="1066" cy="120" r="6" fill="#fde68a" opacity="0.85"/>
+  <circle cx="900" cy="284" r="5" fill="#67e8f9" opacity="0.85"/>
+  <circle cx="1090" cy="278" r="4" fill="#ecfccb" opacity="0.7"/>
+  <rect x="-220" y="0" width="220" height="380" fill="url(#beam)">
+    <animate attributeName="x" values="-220;1300;-220" dur="7.5s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(980,190)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -14;0 0" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+      <path d="M0,-80 C28,-42 32,-10 0,74 C-32,-10 -28,-42 0,-80 Z" fill="url(#nib)" stroke="#ecfccb" stroke-width="8"/>
+      <line x1="0" y1="-22" x2="0" y2="40" stroke="#064e3b" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="0" cy="-32" r="9" fill="#fbbf24" stroke="#064e3b" stroke-width="4"/>
+      <circle cx="0" cy="60" r="10" fill="#fbbf24" stroke="#064e3b" stroke-width="4"/>
+    </g>
+  </g>
+  <line x1="72" y1="172" x2="318" y2="172" stroke="#6ee7b7" stroke-width="6" stroke-linecap="round" stroke-dasharray="246" stroke-dashoffset="246">
+    <animate attributeName="stroke-dashoffset" values="246;0;0;246" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <text x="70" y="150" font-size="62" font-weight="800" fill="url(#title)">MyBlog</text>
+  <text x="72" y="198" font-size="22" fill="#d6f7e6" opacity="0.92">纯静态 Markdown 博客 · 零云依赖</text>
+  <g font-size="16" font-weight="600">
+    <rect x="72" y="220" width="120" height="34" rx="17" fill="#34d399" opacity="0.20" stroke="#6ee7b7" stroke-width="2"/>
+    <text x="132" y="242" fill="#eafff4" text-anchor="middle">Markdown</text>
+    <rect x="204" y="220" width="108" height="34" rx="17" fill="#ecfccb" opacity="0.16" stroke="#ecfccb" stroke-width="2"/>
+    <text x="258" y="242" fill="#f1fff8" text-anchor="middle">静态站</text>
+  </g>
+</svg>
