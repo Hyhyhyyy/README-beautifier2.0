@@ -253,12 +253,29 @@ Checklist before applying (mirrors what was done live):
 4. Immediately `gh api repos/OWNER/REPO --jq '.description'` and assert it equals the
    draft (byte-for-byte). Only report success after this round-trip matches.
 
-### Step 5 — Push
-Prefer the git-clone-then-commit method (robust for multiple files; avoids API
-path/sandbox issues). See `references/verification.md` for the exact commands and the
-note about subdirectory repos. If `git clone` returns HTTP 403 "repository is
-disabled" / "Repository has been locked", **stop** — the repo is locked (the `disabled`
-API flag lies). Keep assets local and push after the lock is lifted.
+### Step 5 — Push (reliable path: `gh api` REST PUT)
+
+In this sandbox the Git protocol travels through a **stale mirror proxy**: `git push`
+often reports success locally but the real GitHub never receives it (a "phantom
+success"). The **GitHub REST API (`gh api`) uses a separate, accurate egress**, so push
+assets via `gh api -X PUT contents/<path>`:
+
+```bash
+gh api -X PUT repos/OWNER/REPO/contents/banner.svg \
+  --input - <<'JSON'
+{"message":"style(banner): animated hero","content":"<base64>","sha":"<current blob sha>"}
+JSON
+```
+
+- Always fetch the **current blob `sha`** first (`gh api contents/<path> --jq .sha`);
+  include it for updates, omit it for new files.
+- **Verify after every push**: `gh api contents/<path> --jq .content` → base64-decode →
+  compute SHA-256 and compare byte-for-byte with the local file. Only report success
+  after the round-trip matches. (`gh api` GET is the accurate read egress.)
+- For subdirectory / non-default-branch repos, add `-f branch=<branch>`.
+- If `gh api` returns HTTP 403 "Repository has been locked" / "repository is disabled",
+  **stop** — the repo is locked (the `disabled` API flag lies). Keep assets local and
+  push after the lock is lifted.
 
 ### Step 6 — Verify remotely
 Confirm the **remote** banner still contains SMIL (GitHub keeps it, but verify) and
