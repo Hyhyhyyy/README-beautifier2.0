@@ -1,6 +1,6 @@
 ---
 name: github-readme-beautify
-description: "Beautify one or more GitHub repository READMEs with an animated hero banner (a standalone SVG using SMIL animation that plays inline in GitHub), architecture or flow diagrams, badges, and structured feature tables, then push those assets to GitHub. Trigger phrases include 美化 GitHub README, 给仓库加动画横幅, beautify my repos, add a banner to my README, GitHub 仓库 README 配图, or any request to standardize or polish multiple repo landing pages."
+description: "Beautify one or more GitHub repository READMEs with an animated hero banner (a standalone SVG using SMIL animation that plays inline in GitHub), architecture or flow diagrams, badges, and structured feature tables, then push those assets to GitHub. Packaged as a WorkBuddy skill, but the method is platform-agnostic and portable to ANY agent/tool that can author images and push to GitHub. Trigger phrases include 美化 GitHub README, 给仓库加动画横幅, beautify my repos, add a banner to my README, GitHub 仓库 README 配图, or any request to standardize or polish multiple repo landing pages."
 agent_created: true
 ---
 
@@ -11,6 +11,41 @@ push it. The visual centerpiece is a **1280×380 hero banner as a standalone SVG
 SMIL animation** — GitHub strips inline `<style>`/`<script>` but keeps `<img
 src="banner.svg">` and renders its SMIL animations, so the banner moves inside the
 README with zero JS.
+
+## Scope & portability — WorkBuddy skill, but the method is universal
+
+**This is packaged as a WorkBuddy skill, but the technique is platform-agnostic.** It
+applies to **any agent, assistant, or tool that can (a) author vector / illustration
+assets (hand-drawn SVG, or generated images converted to SVG) and (b) read & write a
+GitHub repository** (via `gh`, the Git protocol, or the REST API). It is **not** tied to
+WorkBuddy.
+
+Why the method transfers anywhere:
+- **The core trick is a GitHub platform constraint, not a WorkBuddy feature.** GitHub
+  strips inline `<style>`/`<script>` from READMEs but **keeps SMIL animation inside an
+  `<img src="banner.svg">`-referenced standalone SVG**. So the banner animates on *any*
+  GitHub README no matter which agent produced the file.
+- **The design rules are methodology, not tooling:** content-driven motif selection,
+  hand-authoring with zero presets, the two mandatory motion layers, the uniqueness gate,
+  and badge safety. An agent on another platform follows the same rules by hand or by
+  porting the generators.
+- **The QA validator (`scripts/validate_banner.py`) is plain Python 3** — runnable
+  locally by any agent, no WorkBuddy runtime required. It needs only a renderer-free SVG
+  parse, so it checks banners produced by *any* pipeline.
+
+What is WorkBuddy-specific (and trivially re-implementable elsewhere):
+- The `SKILL.md` frontmatter and trigger phrasing (used only for skill discovery inside
+  WorkBuddy).
+- The generator scripts (`gen_scifi.py`, `gen_diagrams.py`, `gen_readmes.py`) are
+  convenience helpers. Another platform can either port them or author the SVG directly —
+  the validator still checks the result.
+- Pushing assets uses the `gh` CLI here, but any Git client or the GitHub REST API works
+  identically.
+
+**Bottom line:** run this skill as-is inside WorkBuddy, or lift the *method + validator*
+into any other agent / platform that can draw and push to GitHub. The only hard
+dependency is GitHub's README sanitizer behavior (keep animation in a standalone
+`banner.svg`, never inline it).
 
 ## 🚫 No preset library — this is the core rule
 
@@ -168,6 +203,36 @@ either the **banner-wide** motion (an animation spanning ≥ 600px horizontally)
 Rule 1-4 + Rule 6 only (legacy baseline banners predate Rule 7); use `--gate` for any
 banner you author under the new rules.
 
+### Step 4.6 — Set the repo description (About)
+
+Every beautified repo also gets a GitHub **About** description in the owner's
+consistent 📌 Chinese style — this is part of the landing-page polish, not just the
+banner. Set it through the REST PATCH (not the web UI, and not `gh repo edit` which
+can stumble on the mirror proxy):
+
+```bash
+gh api -X PATCH repos/OWNER/REPO -f description='📌<项目名/定位><1–2 emoji>。<具体描述>。'
+```
+
+**Format — observed from the owner's live public repos** (ChainPass, dlut-ultimate-website,
+KeLing2.0/3.0, md-converter, train_guard, Token_Saver, Hyhyhyyy profile):
+
+```
+📌<项目名/定位><1–2 个相关 emoji>。<技术栈 / 核心功能 / 适用场景 / 定位，分号列举，结尾。>
+```
+
+Rules:
+- Must start with 📌.
+- Project name first (include the version like `2.0` when applicable) + a one-phrase
+  type/positioning word (平台 / 官网 / 助手 / 工具 / 工具包 / 框架 / 主页).
+- Attach 1–2 emojis thematically tied to the project.
+- Use a full-width Chinese period 。 to separate the title from the body.
+- Body: core tech stack, key features, target audience / use cases, and positioning,
+  joined by semicolons (；) or commas, ending with 。.
+- Chinese only; no English run-on sentences, no Markdown links, no padding.
+- **Opt-out:** private / joke / personal repos (MyBlog, TOMATOMATOO, KeLing1.0, …) may
+  keep their own style — the 📌 convention applies to the public project portfolio.
+
 ### Step 5 — Push
 Prefer the git-clone-then-commit method (robust for multiple files; avoids API
 path/sandbox issues). See `references/verification.md` for the exact commands and the
@@ -229,3 +294,6 @@ All are in `references/environment-gotchas.md`. The most common failures:
   object/palette/motion), never as a recolored template set.
 - `python scripts/validate_banner.py --gate banners/ banner.svg` reports PASS (Rule 1-4
   + 6 + 7) before any push of a newly authored banner.
+- Every beautified repo's GitHub **About** description follows the 📌 Chinese format
+  (Step 4.6) — start with 📌, project name + type word + 1–2 themed emojis, full-width
+  period 。, then tech stack / features / use-case / positioning body ending with 。.
